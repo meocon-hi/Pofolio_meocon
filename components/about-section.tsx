@@ -230,17 +230,17 @@ export function AboutSection() {
         <div className="reveal flex flex-col items-center mb-14">
           {/* Glow ring + avatar */}
           <div className="relative mb-5">
-            <div className="absolute -inset-1 rounded-full animate-glow-pulse"
-              style={{ background: 'linear-gradient(135deg, #0ea5e9, #818cf8, #f472b6)', borderRadius: '9999px', filter: 'blur(4px)', opacity: 0.7 }} />
-            <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full flex items-center justify-center overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #818cf8 50%, #f472b6 100%)' }}>
-              {/* Ocean wave icon as avatar placeholder */}
-              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                <path d="M10 52 Q20 38 30 42 Q40 46 50 34 Q60 22 70 28" stroke="white" strokeWidth="3.5" fill="none" strokeLinecap="round" opacity="0.9"/>
-                <path d="M5 62 Q18 48 28 52 Q40 56 52 44 Q64 32 75 38" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                <circle cx="40" cy="28" r="12" fill="rgba(255,255,255,0.2)" stroke="white" strokeWidth="2" opacity="0.8"/>
-                <path d="M34 28 Q40 22 46 28 Q40 34 34 28Z" fill="white" opacity="0.85"/>
-              </svg>
+            {/* Animated gradient glow ring */}
+            <div className="absolute -inset-1.5 rounded-full animate-glow-pulse"
+              style={{ background: 'linear-gradient(135deg, #0ea5e9, #818cf8, #f472b6)', borderRadius: '9999px', filter: 'blur(6px)', opacity: 0.75 }} />
+            {/* Avatar circle */}
+            <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden"
+              style={{ border: '3px solid rgba(56,189,248,0.5)' }}>
+              <img
+                src="/avatar.jpg"
+                alt="Tran Thao Nguyen"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </div>
 
