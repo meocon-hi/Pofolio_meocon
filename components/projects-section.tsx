@@ -2,39 +2,75 @@
 
 import { useEffect, useRef } from 'react'
 
-/* ── Illustration SVGs for each project ── */
+/* ── Illustration SVGs ── */
+function SpaceWebIllustration() {
+  return (
+    <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
+      <circle cx="100" cy="100" r="75" fill="rgba(56,189,248,0.10)"/>
+      {/* Stars */}
+      <circle cx="30" cy="30" r="2" fill="white" opacity="0.8"/>
+      <circle cx="170" cy="25" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="155" cy="60" r="1" fill="white" opacity="0.5"/>
+      <circle cx="45" cy="170" r="1.5" fill="white" opacity="0.55"/>
+      <circle cx="175" cy="155" r="2" fill="white" opacity="0.7"/>
+      <circle cx="80" cy="20" r="1" fill="white" opacity="0.5"/>
+      {/* Planet big */}
+      <circle cx="105" cy="95" r="42" fill="#1e3a6e" opacity="0.95"/>
+      <circle cx="105" cy="95" r="42" fill="url(#planetGrad)" opacity="0.85"/>
+      <defs>
+        <radialGradient id="planetGrad" cx="35%" cy="35%">
+          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.6"/>
+          <stop offset="100%" stopColor="#0f172a" stopOpacity="0.2"/>
+        </radialGradient>
+      </defs>
+      {/* Planet ring */}
+      <ellipse cx="105" cy="95" rx="60" ry="14" stroke="#38bdf8" strokeWidth="2.5" fill="none" opacity="0.35"/>
+      <ellipse cx="105" cy="95" rx="52" ry="10" stroke="#7dd3fc" strokeWidth="1.2" fill="none" opacity="0.25"/>
+      {/* Surface lines */}
+      <path d="M70 80 Q105 70 140 82" stroke="rgba(56,189,248,0.35)" strokeWidth="1.5" fill="none"/>
+      <path d="M68 97 Q105 88 142 99" stroke="rgba(56,189,248,0.25)" strokeWidth="1.2" fill="none"/>
+      <path d="M72 114 Q105 106 138 116" stroke="rgba(56,189,248,0.2)" strokeWidth="1" fill="none"/>
+      {/* Moon */}
+      <circle cx="50" cy="55" r="14" fill="#1e3a6e" opacity="0.9"/>
+      <circle cx="50" cy="55" r="14" fill="rgba(165,180,252,0.25)"/>
+      <circle cx="45" cy="50" r="4" fill="rgba(255,255,255,0.12)"/>
+      {/* Browser chrome floating */}
+      <rect x="20" y="148" width="80" height="38" rx="5" fill="rgba(14,30,80,0.85)" stroke="rgba(56,189,248,0.3)" strokeWidth="1"/>
+      <rect x="20" y="148" width="80" height="10" rx="5" fill="rgba(56,189,248,0.2)"/>
+      <circle cx="26" cy="153" r="2" fill="#f472b6" opacity="0.8"/>
+      <circle cx="32" cy="153" r="2" fill="#fbbf24" opacity="0.8"/>
+      <circle cx="38" cy="153" r="2" fill="#4ade80" opacity="0.8"/>
+      <rect x="24" y="162" width="68" height="3" rx="1.5" fill="rgba(255,255,255,0.2)"/>
+      <rect x="24" y="169" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
+      <rect x="24" y="176" width="60" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
+      {/* Sparkles */}
+      <circle cx="160" cy="148" r="4" fill="#fbbf24" opacity="0.85"/>
+      <circle cx="152" cy="160" r="2.5" fill="#fbbf24" opacity="0.65"/>
+      <path d="M160 140 L160 156 M152 148 L168 148" stroke="#fbbf24" strokeWidth="1.2" opacity="0.45"/>
+    </svg>
+  )
+}
+
 function HearMeIllustration() {
   return (
     <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
-      {/* Background glow */}
       <circle cx="100" cy="100" r="75" fill="rgba(56,189,248,0.12)"/>
-      {/* Hand / ASL sign */}
       <g transform="translate(50,40)">
-        {/* Palm */}
         <rect x="28" y="60" width="44" height="52" rx="10" fill="#38bdf8" opacity="0.9"/>
-        {/* Thumb */}
         <rect x="12" y="72" width="20" height="28" rx="8" fill="#38bdf8" opacity="0.85" transform="rotate(-20 22 86)"/>
-        {/* Finger 1 */}
         <rect x="28" y="22" width="12" height="44" rx="6" fill="#60c8f5" opacity="0.9"/>
-        {/* Finger 2 */}
         <rect x="44" y="18" width="12" height="46" rx="6" fill="#60c8f5" opacity="0.9"/>
-        {/* Finger 3 */}
         <rect x="60" y="22" width="12" height="42" rx="6" fill="#60c8f5" opacity="0.85"/>
-        {/* Finger 4 */}
         <rect x="74" y="30" width="11" height="34" rx="5.5" fill="#60c8f5" opacity="0.8"/>
-        {/* Shine */}
         <ellipse cx="55" cy="58" rx="10" ry="4" fill="rgba(255,255,255,0.25)"/>
       </g>
-      {/* Sound waves */}
       <path d="M148 70 Q162 100 148 130" stroke="#f472b6" strokeWidth="3.5" fill="none" strokeLinecap="round" opacity="0.8"/>
       <path d="M158 58 Q178 100 158 142" stroke="#f472b6" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.55"/>
       <path d="M168 48 Q192 100 168 152" stroke="#f472b6" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.35"/>
-      {/* AI sparkles */}
       <circle cx="40" cy="38" r="4" fill="#fbbf24" opacity="0.9"/>
       <circle cx="32" cy="50" r="2.5" fill="#fbbf24" opacity="0.7"/>
       <circle cx="52" cy="30" r="3" fill="#fbbf24" opacity="0.75"/>
       <path d="M40 30 L40 46 M33 38 L47 38" stroke="#fbbf24" strokeWidth="1.5" opacity="0.5"/>
-      {/* Floating bubbles */}
       <circle cx="30" cy="150" r="8" fill="rgba(56,189,248,0.2)" stroke="rgba(255,255,255,0.3)" strokeWidth="1"/>
       <circle cx="165" cy="160" r="5" fill="rgba(56,189,248,0.15)" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
       <circle cx="170" cy="45" r="6" fill="rgba(244,114,182,0.15)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
@@ -42,134 +78,111 @@ function HearMeIllustration() {
   )
 }
 
-function RobocarIllustration() {
+function RobotSimIllustration() {
   return (
     <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
       <circle cx="100" cy="100" r="75" fill="rgba(129,140,248,0.12)"/>
-      {/* Submarine / Robot body */}
-      <g transform="translate(30, 55)">
-        {/* Main body */}
-        <rect x="20" y="35" width="100" height="55" rx="22" fill="#818cf8" opacity="0.95"/>
-        {/* Cockpit dome */}
-        <ellipse cx="95" cy="35" rx="24" ry="22" fill="#a78bfa" opacity="0.9"/>
-        <ellipse cx="95" cy="33" rx="18" ry="16" fill="rgba(180,220,255,0.7)"/>
-        <ellipse cx="92" cy="30" rx="7" ry="6" fill="rgba(255,255,255,0.6)"/>
-        {/* Eye / Sensor */}
-        <circle cx="95" cy="35" r="9" fill="#22d3ee" opacity="0.85"/>
-        <circle cx="95" cy="35" r="5" fill="#0a0f2e"/>
-        <circle cx="93" cy="33" r="2" fill="white" opacity="0.8"/>
-        {/* Front nose */}
-        <path d="M120 48 L140 62 L120 76 Z" fill="#6366f1" opacity="0.85"/>
-        {/* Tail fin */}
-        <path d="M20 45 L0 28 L8 62 Z" fill="#7c3aed" opacity="0.75"/>
-        <path d="M20 75 L0 92 L8 62 Z" fill="#7c3aed" opacity="0.7"/>
-        {/* Propeller */}
-        <circle cx="10" cy="62" r="6" fill="#4f46e5" opacity="0.8"/>
-        <ellipse cx="10" cy="50" rx="3" ry="10" fill="#818cf8" opacity="0.7" transform="rotate(20 10 62)"/>
-        <ellipse cx="10" cy="74" rx="3" ry="10" fill="#818cf8" opacity="0.7" transform="rotate(-20 10 62)"/>
-        {/* Top fin */}
-        <path d="M60 35 L70 10 L85 35 Z" fill="#6366f1" opacity="0.7"/>
-        {/* Wheels (robocar) */}
-        <circle cx="45" cy="90" r="12" fill="#4338ca" opacity="0.9"/>
-        <circle cx="45" cy="90" r="7" fill="#312e81" opacity="0.9"/>
-        <circle cx="95" cy="90" r="12" fill="#4338ca" opacity="0.9"/>
-        <circle cx="95" cy="90" r="7" fill="#312e81" opacity="0.9"/>
-        {/* Speed lines */}
-        <path d="M-8 50 L12 50" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
-        <path d="M-12 62 L8 62" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-        <path d="M-8 74 L10 74" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+      {/* Robot body */}
+      <g transform="translate(58, 40)">
+        {/* Head */}
+        <rect x="12" y="0" width="60" height="46" rx="10" fill="#818cf8" opacity="0.95"/>
+        {/* Eye left */}
+        <circle cx="28" cy="20" r="9" fill="#0f172a"/>
+        <circle cx="28" cy="20" r="6" fill="#22d3ee" opacity="0.9"/>
+        <circle cx="26" cy="18" r="2.5" fill="white" opacity="0.85"/>
+        {/* Eye right */}
+        <circle cx="56" cy="20" r="9" fill="#0f172a"/>
+        <circle cx="56" cy="20" r="6" fill="#22d3ee" opacity="0.9"/>
+        <circle cx="54" cy="18" r="2.5" fill="white" opacity="0.85"/>
+        {/* Mouth */}
+        <rect x="24" y="34" width="36" height="6" rx="3" fill="#22d3ee" opacity="0.6"/>
+        <rect x="28" y="36" width="8" height="2" rx="1" fill="white" opacity="0.5"/>
+        <rect x="40" y="36" width="8" height="2" rx="1" fill="white" opacity="0.5"/>
+        {/* Antenna */}
+        <rect x="39" y="-14" width="6" height="16" rx="3" fill="#a78bfa" opacity="0.9"/>
+        <circle cx="42" cy="-16" r="5" fill="#f472b6" opacity="0.85"/>
+        {/* Body */}
+        <rect x="4" y="50" width="76" height="56" rx="10" fill="#6366f1" opacity="0.9"/>
+        {/* Chest panel */}
+        <rect x="14" y="58" width="56" height="36" rx="6" fill="rgba(10,15,60,0.6)"/>
+        <circle cx="28" cy="70" r="5" fill="#22d3ee" opacity="0.8"/>
+        <circle cx="42" cy="70" r="5" fill="#f472b6" opacity="0.75"/>
+        <circle cx="56" cy="70" r="5" fill="#4ade80" opacity="0.75"/>
+        <rect x="20" y="80" width="44" height="3" rx="1.5" fill="#38bdf8" opacity="0.4"/>
+        <rect x="20" y="86" width="32" height="3" rx="1.5" fill="#38bdf8" opacity="0.3"/>
+        {/* Arms */}
+        <rect x="-16" y="52" width="20" height="46" rx="10" fill="#7c3aed" opacity="0.85"/>
+        <rect x="80" y="52" width="20" height="46" rx="10" fill="#7c3aed" opacity="0.85"/>
+        {/* Wheels */}
+        <circle cx="22" cy="112" r="12" fill="#4338ca" opacity="0.9"/>
+        <circle cx="22" cy="112" r="7" fill="#1e1b4b" opacity="0.95"/>
+        <circle cx="62" cy="112" r="12" fill="#4338ca" opacity="0.9"/>
+        <circle cx="62" cy="112" r="7" fill="#1e1b4b" opacity="0.95"/>
       </g>
+      {/* Gazebo grid floor */}
+      <line x1="20" y1="175" x2="180" y2="175" stroke="rgba(56,189,248,0.2)" strokeWidth="1"/>
+      <line x1="20" y1="182" x2="180" y2="182" stroke="rgba(56,189,248,0.12)" strokeWidth="0.8"/>
+      <line x1="40" y1="165" x2="40" y2="190" stroke="rgba(56,189,248,0.15)" strokeWidth="0.8"/>
+      <line x1="80" y1="165" x2="80" y2="190" stroke="rgba(56,189,248,0.15)" strokeWidth="0.8"/>
+      <line x1="120" y1="165" x2="120" y2="190" stroke="rgba(56,189,248,0.15)" strokeWidth="0.8"/>
+      <line x1="160" y1="165" x2="160" y2="190" stroke="rgba(56,189,248,0.15)" strokeWidth="0.8"/>
+      {/* Floating code */}
+      <rect x="14" y="80" width="28" height="14" rx="4" fill="rgba(99,102,241,0.2)" stroke="rgba(99,102,241,0.4)" strokeWidth="1"/>
+      <text x="28" y="91" textAnchor="middle" fontSize="7" fill="#a78bfa" opacity="0.8">AI</text>
       {/* Bubbles */}
-      <circle cx="155" cy="45" r="9" fill="rgba(129,140,248,0.2)" stroke="rgba(255,255,255,0.3)" strokeWidth="1"/>
-      <circle cx="165" cy="155" r="6" fill="rgba(56,189,248,0.15)" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
-      <circle cx="30" cy="160" r="10" fill="rgba(129,140,248,0.15)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
-      <circle cx="168" cy="100" r="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8"/>
-      {/* Trophy badge */}
-      <circle cx="165" cy="42" r="14" fill="rgba(251,191,36,0.2)" stroke="rgba(251,191,36,0.5)" strokeWidth="1.5"/>
-      <text x="165" y="47" textAnchor="middle" fontSize="14" fill="#fbbf24">🏆</text>
+      <circle cx="22" cy="48" r="6" fill="rgba(129,140,248,0.2)" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
+      <circle cx="176" cy="140" r="8" fill="rgba(56,189,248,0.15)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
     </svg>
   )
 }
 
-function WebMobileIllustration() {
-  return (
-    <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
-      <circle cx="100" cy="100" r="75" fill="rgba(244,114,182,0.10)"/>
-      {/* Laptop */}
-      <g transform="translate(22, 80)">
-        <rect x="10" y="0" width="115" height="72" rx="6" fill="#1e1b4b" opacity="0.95"/>
-        <rect x="14" y="4" width="107" height="64" rx="4" fill="#312e81" opacity="0.9"/>
-        {/* Screen content */}
-        <rect x="18" y="8" width="60" height="8" rx="3" fill="#f472b6" opacity="0.7"/>
-        <rect x="18" y="20" width="99" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
-        <rect x="18" y="28" width="80" height="4" rx="2" fill="rgba(255,255,255,0.18)"/>
-        <rect x="18" y="36" width="90" height="4" rx="2" fill="rgba(255,255,255,0.18)"/>
-        <rect x="18" y="48" width="40" height="14" rx="5" fill="#f472b6" opacity="0.75"/>
-        <rect x="64" y="48" width="40" height="14" rx="5" fill="rgba(56,189,248,0.4)" stroke="rgba(56,189,248,0.5)" strokeWidth="1"/>
-        {/* Base */}
-        <path d="M0 72 L135 72 L125 82 L10 82 Z" fill="#0f0a2e" opacity="0.9"/>
-        <rect x="50" y="82" width="35" height="5" rx="2.5" fill="#1e1b4b" opacity="0.8"/>
-      </g>
-      {/* Phone floating */}
-      <g transform="translate(128, 38)">
-        <rect x="0" y="0" width="44" height="76" rx="8" fill="#1e1b4b" opacity="0.95"/>
-        <rect x="3" y="8" width="38" height="60" rx="4" fill="#312e81" opacity="0.9"/>
-        {/* Phone screen */}
-        <rect x="6" y="12" width="32" height="6" rx="2" fill="#f472b6" opacity="0.65"/>
-        <rect x="6" y="22" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.2)"/>
-        <rect x="6" y="28" width="22" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
-        <rect x="6" y="40" width="32" height="16" rx="4" fill="rgba(56,189,248,0.25)"/>
-        {/* Home bar */}
-        <rect x="14" y="72" width="16" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
-      </g>
-      {/* Code brackets floating */}
-      <text x="22" y="78" fontSize="22" fill="#38bdf8" opacity="0.5" fontFamily="monospace">{'</>'}</text>
-      <text x="155" y="168" fontSize="16" fill="#f472b6" opacity="0.45" fontFamily="monospace">{ '{}' }</text>
-      {/* Tech icons */}
-      <circle cx="38" cy="130" r="14" fill="rgba(244,114,182,0.15)" stroke="rgba(244,114,182,0.4)" strokeWidth="1.5"/>
-      <text x="38" y="135" textAnchor="middle" fontSize="13" fill="#f472b6" opacity="0.85">⚛</text>
-      <circle cx="162" cy="128" r="12" fill="rgba(56,189,248,0.15)" stroke="rgba(56,189,248,0.4)" strokeWidth="1.5"/>
-      <text x="162" y="133" textAnchor="middle" fontSize="11" fill="#38bdf8" opacity="0.85">🔥</text>
-      {/* Bubbles */}
-      <circle cx="28" cy="50" r="7" fill="rgba(244,114,182,0.15)" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
-      <circle cx="170" cy="165" r="8" fill="rgba(56,189,248,0.12)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
-    </svg>
-  )
-}
+type Link = { label: string; href: string }
 
 const projects = [
   {
     num: '01',
-    title: 'HearMe',
-    category: 'AI / Education / Team Project',
-    categoryJa: 'AI / 教育 / チームプロジェクト',
-    description: '「AI for Life」コンテストでチームメンバーと一緒に開発したアプリです。AIを使ってASL（アメリカ手話）の学習を支援することを目的としています。人の学習をサポートできる、意味のあるプロジェクトだと感じました。',
-    tags: ['AI', 'ASL', 'Education', 'Teamwork'],
+    title: '宇宙探索 Web サイト',
+    period: '2023年5月（約2週間）',
+    category: 'Web Development / Team Project',
+    categoryJa: 'Webサイト / チーム開発',
+    description: '宇宙や惑星について学ぶことができるWebサイトを開発しました。ユーザーが各惑星の情報を楽しく学べるよう、画面デザインやレイアウト、レスポンシブ対応を担当しました。チームでの開発を通して、見やすいUIの重要さと、短い期間で計画的に進める力を学びました。',
+    tags: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Team'],
     accent: '#38bdf8',
     result: null,
-    Illustration: HearMeIllustration,
+    Illustration: SpaceWebIllustration,
+    links: [
+      { label: 'GitHub', href: 'https://github.com/meocon-hi/n2.git' },
+      { label: 'Live Demo', href: 'https://n2-sigma.vercel.app/' },
+    ] as Link[],
   },
   {
     num: '02',
-    title: 'VKU ROBOCAR',
-    category: 'Robot / Simulation / Competition',
-    categoryJa: 'ロボット / シミュレーション / 競技',
-    description: 'VKU ROBOCARコンテストで、チームメンバーと協力しながらロボットカーの開発に取り組みました。このプロジェクトを通して、ロボットやシミュレーション分野にもっと興味を持つようになりました。',
-    tags: ['Robot', 'Simulation', 'Team Project', 'C++'],
-    accent: '#818cf8',
-    result: '奨励賞',
-    Illustration: RobocarIllustration,
+    title: 'HearMe',
+    period: '2024年10月〜2024年12月',
+    category: 'AI / Education / Team Project',
+    categoryJa: 'AI・手話認識 / チーム開発',
+    description: '「AI for Life」コンテストで開発したアプリです。AIを使ってASL（アメリカ手話）の文字を認識し、学習をサポートします。データ調査・AIモデル学習・認識機能の検討を担当しました。2025年12月からはReact Nativeを使ったマルチプラットフォームアプリとして開発を続ける予定です。',
+    tags: ['Python', 'AI', 'React Native', 'ASL', 'Team'],
+    accent: '#f472b6',
+    result: null,
+    Illustration: HearMeIllustration,
+    links: [
+      { label: 'Frontend', href: 'https://github.com/CristalViet/AmericanSignLanugeApp.git' },
+      { label: 'Backend', href: 'https://github.com/CristalViet/BackEndHearMe_Version2' },
+    ] as Link[],
   },
   {
     num: '03',
-    title: 'Web / Mobile Projects',
-    category: 'Web & Mobile Development',
-    categoryJa: 'Web & モバイル開発',
-    description: '大学での学習や個人開発を通して、Webアプリやモバイルアプリの開発に取り組んできました。React Native、Laravel、NextJS、Firebaseなどを使い、実際のアプリ開発に必要な基礎力を身につけています。',
-    tags: ['Web', 'Mobile', 'React Native', 'Laravel', 'Firebase'],
-    accent: '#f472b6',
-    result: null,
-    Illustration: WebMobileIllustration,
+    title: 'ロボットシミュレーション',
+    period: '2026年2月〜2026年4月',
+    category: 'Robot / AI / Internship',
+    categoryJa: 'ロボット・シミュレーション / インターン',
+    description: 'IMPL株式会社でのリモートインターン中に参加したプロジェクトです。AIモデルを使った認識機能の実装、Gazeboでのロボットシミュレーション、Raspberry Pi上での動作確認を担当しました。思った通りに動かない時に原因を考え試行錯誤する力を身につけ、ロボット・シミュレーション分野への興味がさらに深まりました。',
+    tags: ['Python', 'AI', 'Gazebo', 'Raspberry Pi', 'Simulation'],
+    accent: '#818cf8',
+    result: 'インターン',
+    Illustration: RobotSimIllustration,
+    links: [] as Link[],
   },
 ]
 
@@ -212,12 +225,12 @@ export function ProjectsSection() {
           <p className="text-[#38bdf8] text-sm font-semibold tracking-widest uppercase">Projects</p>
         </div>
 
-        {/* Cards - portrait style like reference */}
+        {/* Cards */}
         <div className="grid md:grid-cols-3 gap-6 items-start">
           {projects.map((proj, i) => (
             <div key={proj.title} className={`card-pop delay-${i * 150}`}>
               <div
-                className="ocean-card relative rounded-3xl flex flex-col overflow-hidden"
+                className="ocean-card relative rounded-3xl flex flex-col overflow-hidden h-full"
                 style={{
                   background: `linear-gradient(180deg, rgba(10,18,55,0.85) 0%, rgba(6,12,40,0.92) 100%)`,
                   border: `1px solid ${proj.accent}30`,
@@ -236,7 +249,6 @@ export function ProjectsSection() {
                 {/* Illustration area */}
                 <div className="relative w-full flex items-center justify-center pt-8 pb-4 px-6"
                   style={{ height: '200px' }}>
-                  {/* Glow behind illustration */}
                   <div className="absolute inset-0 rounded-t-3xl"
                     style={{ background: `radial-gradient(ellipse at 50% 80%, ${proj.accent}18 0%, transparent 65%)` }} />
                   <div className="relative w-full h-full">
@@ -249,13 +261,21 @@ export function ProjectsSection() {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col gap-3 flex-grow">
-                  {/* Result badge */}
-                  {proj.result && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold self-start"
-                      style={{ background: 'rgba(244,114,182,0.18)', border: '1px solid rgba(244,114,182,0.4)', color: '#f472b6' }}>
-                      🏆 {proj.result}
+
+                  {/* Badge row */}
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {proj.result && (
+                      <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold"
+                        style={{ background: `${proj.accent}20`, border: `1px solid ${proj.accent}50`, color: proj.accent }}>
+                        💼 {proj.result}
+                      </span>
+                    )}
+                    {/* Period chip */}
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium"
+                      style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#94c8e8' }}>
+                      🗓 {proj.period}
                     </span>
-                  )}
+                  </div>
 
                   <h3 className="text-white font-black text-xl leading-tight">{proj.title}</h3>
 
@@ -282,6 +302,42 @@ export function ProjectsSection() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Links */}
+                  {proj.links.length > 0 && (
+                    <>
+                      <div className="h-px mt-1" style={{ background: `linear-gradient(90deg, ${proj.accent}25, transparent)` }} />
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {proj.links.map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 hover:scale-105 hover:brightness-110"
+                            style={{
+                              background: `${proj.accent}18`,
+                              border: `1px solid ${proj.accent}45`,
+                              color: proj.accent,
+                            }}
+                          >
+                            {link.label === 'GitHub' || link.label === 'Frontend' || link.label === 'Backend' ? (
+                              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                              </svg>
+                            ) : (
+                              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                              </svg>
+                            )}
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
